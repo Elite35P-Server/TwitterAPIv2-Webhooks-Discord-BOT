@@ -27,7 +27,8 @@ Twitter API v2を使用し特定のハッシュタグやユーザーのツイー
             "tag": "<tag_name>"
         }
     ]
-}```
+}
+```
 ## TweetLinkの構造 <br>
 ```https://twitter.com/<tweet_username>/status/<tweet_id>```
 ## Discord Webhooks 指定項目 <br>
