@@ -85,7 +85,7 @@ def get_stream(headers, set, bearer_token):
             tdata.write(tweet + ",\n")
             tdata.flush()
             tdata.close()
-            print("json出力完了")
+            print("json出力ok")
 
 
 
