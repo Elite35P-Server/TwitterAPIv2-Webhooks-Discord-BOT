@@ -5,6 +5,10 @@ Twitter API v2を使用し特定のハッシュタグやユーザーのツイー
 ## TweetLinkの構造 <br>
 https://twitter.com/<tweet_username>/status/<tweet_id> <br>
 ## Discord Webhooks 指定項目 <br>
+```python
+{
   "username": "<tweet_username>",<br>
   "avatar_url": "<profile_image_url>",<br>
   "content": "https://twitter.com/<tweet_username>/status/<tweet_id>"
+}
+```
