@@ -3,4 +3,4 @@ Twitter API v2を使用し特定のハッシュタグやユーザーのツイー
 その後TweetLinkに変換し、WebhooksでDiscordの指定チャンネルに送信
 
 TweetLinkの構造
-https://twitter.com/<username>/status/<tweet_id>
+https://twitter.com/<tweet_username>/status/<tweet_id>
