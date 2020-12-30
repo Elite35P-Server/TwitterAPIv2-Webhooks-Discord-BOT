@@ -1,6 +1,10 @@
 # TwitterAPIv2-Webhooks-Discord-BOT
-Twitter API v2を使用し特定のハッシュタグやユーザーのツイートをStreamを使いリアルタイムに取得する。
-その後TweetLinkに変換し、WebhooksでDiscordの指定チャンネルに送信
+Twitter API v2を使用し特定のハッシュタグやユーザーのツイートをStream APIを使いリアルタイムに取得する。<br>
+その後TweetLinkに変換し、WebhooksでDiscordの指定チャンネルに送信<br>
 
-TweetLinkの構造
-https://twitter.com/<tweet_username>/status/<tweet_id>
+## TweetLinkの構造 <br>
+https://twitter.com/<tweet_username>/status/<tweet_id> <br>
+## Discord Webhooks 指定項目 <br>
+  "username": "<tweet_username>",<br>
+  "avatar_url": "<profile_image_url>",<br>
+  "content": "https://twitter.com/<tweet_username>/status/<tweet_id>"
