@@ -446,3 +446,27 @@
         }
     ]
 },
+{
+    "data": {
+        "author_id": "1210585910489669632",
+        "created_at": "2020-12-30T10:46:43.000Z",
+        "id": "1344233448890748928",
+        "text": "今はjsonから必要な情報だけ抜き出すプログラムをテスト中"
+    },
+    "includes": {
+        "users": [
+            {
+                "id": "1210585910489669632",
+                "name": "ipms(イピマス)🌸",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1245358252117749761/lHJY8IrV_normal.jpg",
+                "username": "ipms_IA"
+            }
+        ]
+    },
+    "matching_rules": [
+        {
+            "id": 1344233219541987332,
+            "tag": "test"
+        }
+    ]
+},
