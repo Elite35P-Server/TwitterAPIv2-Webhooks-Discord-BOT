@@ -79,6 +79,16 @@ def get_stream(headers, set, bearer_token):
     for response_line in response.iter_lines():
         if response_line:
             json_response = json.loads(response_line)
+            
+            # 辞書データから所望の値を取り出す、、、、取り出したい、、、わからん
+            matching_rules = json_response["matching_rules"][1]
+            tweet_user_name = json_response['includes']['users']['name']
+            profile_image_url = json_response['includes']['users']['profile_image_url']
+            tweet_user_id = json_response['includes']['users']['username']
+            tweet_id = json_response['data']['id']
+
+            print(matching_rules + "/n" + tweet_user_name + "/n" + profile_image_url + "/n" + tweet_user_id + "/n" + tweet_id)
+
             #print(json.dumps(json_response, indent=4, sort_keys=True))
             tweet = json.dumps(json_response, ensure_ascii=False, indent=4, sort_keys=True)
             tdata = open("tweet-data/tweet.json", "a")
@@ -86,13 +96,6 @@ def get_stream(headers, set, bearer_token):
             tdata.flush()
             tdata.close()
             print("json出力ok")
-            # 辞書データから所望の値を取り出す
-            matching_rules = json_response['matching_rules']['tag']
-            tweet_user_name = json_response['includes']['users']['name']
-            profile_image_url = json_response['includes']['users']['profile_image_url']
-            tweet_user_id = json_response['includes']['users']['username']
-            tweet_id = json_response['data']['id']
-
 
 
 def main():
