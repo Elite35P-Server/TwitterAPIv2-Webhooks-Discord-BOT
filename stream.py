@@ -86,6 +86,12 @@ def get_stream(headers, set, bearer_token):
             tdata.flush()
             tdata.close()
             print("json出力ok")
+            # 辞書データから所望の値を取り出す
+            matching_rules = json_response['matching_rules']['tag']
+            tweet_user_name = json_response['includes']['users']['name']
+            profile_image_url = json_response['includes']['users']['profile_image_url']
+            tweet_user_id = json_response['includes']['users']['username']
+            tweet_id = json_response['data']['id']
 
 
 
