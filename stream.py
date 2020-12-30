@@ -80,12 +80,12 @@ def get_stream(headers, set, bearer_token):
         if response_line:
             json_response = json.loads(response_line)
             
-            # 辞書データから所望の値を取り出す、、、、取り出したい、、、わからん
+            # 辞書データから所望の値を取り出す、、、、取り出したい、、、取り出したかった、、、、
             matching_rules = json_response["matching_rules"][1]
-            tweet_user_name = json_response['includes']['users']['name']
-            profile_image_url = json_response['includes']['users']['profile_image_url']
-            tweet_user_id = json_response['includes']['users']['username']
-            tweet_id = json_response['data']['id']
+            tweet_user_name = json_response["includes"]["users"][3]
+            profile_image_url = json_response["includes"]["users"][2]
+            tweet_user_id = json_response["includes"]["users"][1]
+            tweet_id = json_response["data"]["id"]
 
             print(matching_rules + "/n" + tweet_user_name + "/n" + profile_image_url + "/n" + tweet_user_id + "/n" + tweet_id)
 
