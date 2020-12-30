@@ -80,10 +80,11 @@ def get_stream(headers, set, bearer_token):
         if response_line:
             json_response = json.loads(response_line)
             #print(json.dumps(json_response, indent=4, sort_keys=True))
-            f = open("tweet-data/tweet.json", "a")
-            f.write(json.dumps(json_response, ensure_ascii=False, indent=4, sort_keys=True) + ",\n")
-            f.flush()
-            f.close()
+            tweet = json.dumps(json_response, ensure_ascii=False, indent=4, sort_keys=True)
+            tweet-data = open("tweet-data/tweet.json", "a")
+            tweet-data.write(json.dumps(tweet + ",\n")
+            tweet-data.flush()
+            tweet-data.close()
             print("json出力完了")
 
 
