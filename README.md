@@ -36,6 +36,6 @@ Twitter API v2を使用し特定のハッシュタグやユーザーのツイー
 {
   "username": "<tweet_user_name>",
   "avatar_url": "<profile_image_url>",
-  "content": "https://twitter.com/<tweet_username>/status/<tweet_id>"
+  "content": "https://twitter.com/<tweet_user_name>/status/<tweet_id>"
 }
 ```
