@@ -5,7 +5,10 @@ import json
 
 # To set your enviornment variables in your terminal run the following line:
 # export 'BEARER_TOKEN'='AAAAAAAAAAAAAAAAAAAAAJFEKgEAAAAAUmp%2F8yloASSlyjrrRbV%2BYu3MBE0%3DvHDl6YnmRYk7tx6LIjDjBknIDzUtB48lafGXGwku12qdTvbspH'
-webhook_url = 'https://discord.com/api/webhooks/794004355598385213/IJi3LhpDm5Z7M8pHuu1N13sAS_Tck6HOeKhyjUkmCLTDfsX8xQjt21q-I9nbTkcZeRCM'
+webhook_url_35P_tweet = 'https://discord.com/api/webhooks/794004355598385213/IJi3LhpDm5Z7M8pHuu1N13sAS_Tck6HOeKhyjUkmCLTDfsX8xQjt21q-I9nbTkcZeRCM'
+webhook_url_35P_Art = 'https://discord.com/api/webhooks/794011767999168522/enQP6wjcO0YwQe948mSPNMV7QCbJA5mhwOvVBKKEKcmZsR7-AMcI87BTQVRBEmMMnFUy'
+webhook_url_Admin_twitter = 'https://discord.com/api/webhooks/794011967462834196/1gBCG4prIJ4sdIDqJjmREt2FN75GzXNij_OfNfW7_b8yURdh5WUcXQiRNojP-4BqgaXy'
+
 
 def create_headers(bearer_token):
     headers = {"Authorization": "Bearer {}".format(bearer_token)}
@@ -50,7 +53,7 @@ def set_rules(headers, delete, bearer_token):
         {"value": "(#さくらみこ OR #miko_Art OR #みこなま OR #ミコミコ動画 OR #みこらじお OR #さくら組料理部 OR #みこきいたぞ OR #バブライブ OR #さくらみこ新3Dお披露目 OR #さくらみこMMD) (-is:retweet -is:quote)", "tag": "35P-Tweet"},
         #{"value": "(#miko_Art OR #ミコミコ動画 OR #さくらみこMMD) (has:media -is:retweet -is:quote)", "tag": "35P-Art"},
         #{"value": "from:sakuramiko35", "tag": "Miko"},
-        {"value": "from:ipms_IA -is:retweet", "tag": "test"},
+        #{"value": "from:ipms_IA -is:retweet", "tag": "test"},
     ]
     payload = {"add": sample_rules}
     response = requests.post(
@@ -89,11 +92,11 @@ def get_stream(headers, set, bearer_token):
 
             print(matching_rules)
             print(users_name)
-            print(profile_image_url)
-            print(tweet_user_id)
-            print(tweet_id)
+            #print(profile_image_url)
+            #print(tweet_user_id)
+            #print(tweet_id)
 
-            tweetlink = "https://twitter.com/{}/status{}"
+            tweetlink = "https://twitter.com/{}/status/{}"
             tweetlink_content = tweetlink.format(tweet_user_id, tweet_id)
 
             print(tweetlink_content)
@@ -104,7 +107,7 @@ def get_stream(headers, set, bearer_token):
                 "avatar_url": profile_image_url,
                 "content": tweetlink_content
             }
-            requests.post(webhook_url, main_content)
+            requests.post(webhook_url_35P_tweet, main_content)
 
             #print(json.dumps(json_response, indent=4, sort_keys=True))
             tweet = json.dumps(json_response, ensure_ascii=False, indent=4, sort_keys=True)
