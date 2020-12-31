@@ -23,8 +23,12 @@ Twitter API v2を使用し特定のハッシュタグやユーザーのツイー
     },
     "matching_rules": [
         {
-            "id": "<rules_id>",
-            "tag": "<tag_name>"
+            "id": "<rules_id1>",
+            "tag": "<tag_name_1>"
+        },
+        {
+            "id": "<rules_id2>",
+            "tag": "<tag_name_2>"
         }
     ]
 }
