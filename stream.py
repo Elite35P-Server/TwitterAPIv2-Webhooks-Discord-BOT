@@ -87,8 +87,11 @@ def get_stream(headers, set, bearer_token):
             tweet_user_id = json_response["includes"]["users"][0]["username"]
             matching_rules = json_response["matching_rules"][0]["tag"]
 
-            #print(matching_rules + "/n" + tweet_user_name + "/n" + profile_image_url + "/n" + tweet_user_id + "/n" + tweet_id)
-            print(includes_users)
+            print(matching_rules)
+            print(users_name)
+            print(profile_image_url)
+            print(tweet_user_id)
+            print(tweet_id)
 
             #print(json.dumps(json_response, indent=4, sort_keys=True))
             tweet = json.dumps(json_response, ensure_ascii=False, indent=4, sort_keys=True)
