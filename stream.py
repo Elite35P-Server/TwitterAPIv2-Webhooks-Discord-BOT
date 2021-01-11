@@ -166,7 +166,6 @@ def get_stream(headers, set, bearer_token):
 
 def main():
     bearer_token = os.getenv("BEARER_TOKEN")
-    #bearer_token = "AAAAAAAAAAAAAAAAAAAAAJFEKgEAAAAAUmp%2F8yloASSlyjrrRbV%2BYu3MBE0%3DvHDl6YnmRYk7tx6LIjDjBknIDzUtB48lafGXGwku12qdTvbspH"
     headers = create_headers(bearer_token)
     rules = get_rules(headers, bearer_token)
     delete = delete_all_rules(headers, bearer_token, rules)
