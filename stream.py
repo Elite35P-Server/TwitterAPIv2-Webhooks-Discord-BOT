@@ -6,11 +6,11 @@ import time
 
 import config
 
-wh1 = config.wh1_mikochi
-wh2 = config.wh4_art
-wh3 = config.wh2_35p
-wh4 = config.wh3_collabo
-wh5 = config.wh5_miko
+wh1 = config.wh1
+wh2 = config.wh2
+wh3 = config.wh3
+wh4 = config.wh4
+wh5 = config.wh5
 #webhook_url_35P_Art = os.getenv("35P_Art")
 #webhook_url_Admin_twitter = os.getenv("Admin_twitter")
 
