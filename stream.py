@@ -53,6 +53,15 @@ def delete_all_rules(headers, bearer_token, rules):
 
 def set_rules(headers, delete, bearer_token):
     # You can adjust the rules if needed
+    #ツイート取得条件設定
+    #以下の設定はその一例です
+    #設定方法はTwitterAPIv2のリファレンスに詳しく記載されています
+    #簡単な説明
+    #{"value": "(検索ワード) (検索条件)", "tag": "タグの名前"},でセットです
+    #(検索ワード)のところには取得したいツイートに含まれるワードを指定できます 例:"(さくらみこ)", "(#さくらみこ)", "(さくらみこ OR みこなま)", "(さくらみこ AND みこなま)"
+    #(検索条件)にはリツイートを取得しない、引用リツイートを取得しない、画像や動画などのメディアなどを含む物だけ取得…などなど細かく設定することが可能です。
+    #例:(-is:retweet)←リツイートを取得しない設定　"-is:…"の"-"は動作を反転させるつまり(is:retweet)とするとリツイートのみを取得するようになる
+    #同様に引用リツイートを取得しない(-is:quote)や画像や動画のみを取得したい場合に使うhas:media)なども設定できる
     sample_rules = [
         {"value": "(さくらみこ OR #みこなま OR みこらじお OR みこクラ OR  #みこきいたぞ OR #さくらみこ新3Dお披露目 OR #さくら色Dreamer) (-is:retweet)", "tag": "mikoti-Tweet"},
         {"value": "(#miko_Art OR #ミコミコ動画 OR #さくらみこMMD) (has:media -is:retweet -is:quote)", "tag": "35P-Art"},
@@ -179,12 +188,12 @@ def get_stream(headers, set, bearer_token):
                 #requests.post(webhook_url_35P_5, main_content)
                 
             #print(json.dumps(json_response, indent=4, sort_keys=True))
-            tweet = json.dumps(json_response, ensure_ascii=False, indent=4, sort_keys=True)
-            tdata = open("tweet.json", "w")
-            tdata.write(tweet)
-            tdata.flush()
-            tdata.close()
-            print("json出力ok")
+            #tweet = json.dumps(json_response, ensure_ascii=False, indent=4, sort_keys=True)
+            #tdata = open("tweet.json", "w")
+            #tdata.write(tweet)
+            #tdata.flush()
+            #tdata.close()
+            #print("json出力ok")
             
 
 def main():
