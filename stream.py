@@ -91,8 +91,8 @@ def get_stream(headers, set, bearer_token):
     )
     print(response.status_code)
     if response.status_code==429:
-        time.sleep(120)
-        main()
+        print("ストリームを開始出来ませんでした。")
+        return
         
     if response.status_code != 200:
         raise Exception(
@@ -101,14 +101,8 @@ def get_stream(headers, set, bearer_token):
             )
         )
         
-    #count = 0
     for response_line in response.iter_lines():
         if response_line:
-
-            #count += 1
-            #if count==5:
-            #    count = 0
-            #print(count)
 
             json_response = json.loads(response_line)
             
@@ -119,12 +113,8 @@ def get_stream(headers, set, bearer_token):
             tweet_user_id = json_response["includes"]["users"][0]["username"]
             matching_rules = json_response.get("matching_rules")
             matching_rules_tag = [d.get('tag') for d in matching_rules]
-            #matching_rules_test1 = matching_rules[0]
-            #matching_rules_test2 = matching_rules.get(1)
-            #matching_rules_tag = matching_rules.get("tag")
-
+            
             print(matching_rules_tag)
-            #print(matching_rules_test2)
             print(users_name)
             #print(profile_image_url)
             #print(tweet_user_id)
@@ -155,55 +145,21 @@ def get_stream(headers, set, bearer_token):
             if "Miko" in matching_rules_tag:
                 print("post みこちった〜")
                 requests.post(wh5, post_content)
-
-
-            # Discord Webhooks 処理1
-            #if count==0:
-                #print(tweetlink_content)
-                # Discord Webhooks POST
-                #requests.post(webhook_url_35P_1, main_content)
                 
-            # Discord Webhooks 処理2
-            #if count==1:
-                #print(tweetlink_content)
-                # Discord Webhooks POST
-                #requests.post(webhook_url_35P_2, main_content)
-                
-            # Discord Webhooks 処理3
-            #if count==2:
-                #print(tweetlink_content)
-                # Discord Webhooks POST
-                #requests.post(webhook_url_35P_3, main_content)
-                
-            # Discord Webhooks 処理4
-            #if count==3:
-                #print(tweetlink_content)
-                # Discord Webhooks POST
-                #requests.post(webhook_url_35P_4, main_content)
-                
-            # Discord Webhooks 処理5
-            #if count==4:
-                #print(tweetlink_content)
-                # Discord Webhooks POST
-                #requests.post(webhook_url_35P_5, main_content)
-                
-            #print(json.dumps(json_response, indent=4, sort_keys=True))
-            #tweet = json.dumps(json_response, ensure_ascii=False, indent=4, sort_keys=True)
-            #tdata = open("tweet.json", "w")
-            #tdata.write(tweet)
-            #tdata.flush()
-            #tdata.close()
-            #print("json出力ok")
-            
 
 def main():
-    bearer_token = config.token
-    headers = create_headers(bearer_token)
-    rules = get_rules(headers, bearer_token)
-    delete = delete_all_rules(headers, bearer_token, rules)
-    set = set_rules(headers, delete, bearer_token)
-    get_stream(headers, set, bearer_token)
-
+    try:
+        bearer_token = config.token
+        headers = create_headers(bearer_token)
+        rules = get_rules(headers, bearer_token)
+        delete = delete_all_rules(headers, bearer_token, rules)
+        set = set_rules(headers, delete, bearer_token)
+        get_stream(headers, set, bearer_token)
+    except:
+        return
 
 if __name__ == "__main__":
-    main()
+    while True:
+        main()
+        print("Twitterサーバーとの接続が切断されたため、2分後に再接続します。")
+        time.sleep(120)
